@@ -1646,6 +1646,25 @@
       "timestamp": "2025-11-20T00:12:44.625892",
       "_category": null,
       "_missing_info": []
+    },
+    {
+      "report_id": "recording_1763930782656",
+      "phase": "intake",
+      "patient_name": "N/A",
+      "age": "N/A",
+      "sex": "N/A",
+      "dob": "N/A",
+      "referring_doctor": "N/A",
+      "exam_date": "N/A",
+      "exam_type": "N/A",
+      "clinical_history": "N/A",
+      "detailed_findings": [],
+      "impression_summary": "N/A",
+      "recommendations": [],
+      "urgency_level": "N/A",
+      "timestamp": "2025-11-23T23:46:27.535343",
+      "_category": null,
+      "_missing_info": []
     }
   ],
   "final_reports": [

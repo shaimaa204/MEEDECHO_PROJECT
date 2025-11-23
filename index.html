@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Artimes Dashboard</title>
+    <title>MedEcho - Clinical Dashboard</title>
 
-    <!-- Tailwind -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
     <!-- TinyMCE Editor -->
     <script src="https://cdn.tiny.cloud/1/bt5i6vumk847ktblo6p9tikafnn5krvisamy3rdmcr5kqvna/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href__="styles.css"/>
 
     <script>
         tailwind.config = {
@@ -23,190 +23,398 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#195de6",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#111621",
+                        "primary": "#0891B2",
+                        "primary-dark": "#0E7490",
+                        "primary-light": "#06B6D4",
+                        "accent": "#059669",
+                        "accent-light": "#10B981",
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#0F172A",
+                    },
+                    fontFamily: {
+                        'display': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 15px -3px rgba(8, 145, 178, 0.08), 0 4px 6px -2px rgba(8, 145, 178, 0.05)',
+                        'medium': '0 4px 20px -3px rgba(8, 145, 178, 0.12), 0 8px 16px -4px rgba(8, 145, 178, 0.08)',
+                        'card': '0 1px 3px 0 rgba(15, 23, 42, 0.08), 0 1px 2px 0 rgba(15, 23, 42, 0.04)',
                     }
                 }
             }
         }
     </script>
+
+    <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            letter-spacing: -0.01em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .nav-item, .tab-item, button, a {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px -6px rgba(8, 145, 178, 0.15);
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .pulse-ring {
+            animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #0891B2 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark font-display">
+<body class="bg-background-light dark:bg-background-dark antialiased">
 
 <div class="relative flex min-h-screen w-full">
 
-    <!-- Sidebar -->
-    <aside id="sidebar" class="w-64 flex-shrink-0 bg-white dark:bg-gray-900 p-4 border-r border-gray-200 dark:border-gray-800">
-        <div class="flex items-center gap-2 mb-6">
-            <span class="material-symbols-outlined text-primary text-3xl">biotech</span>
-            <h2 class="text-xl font-bold">Artimes</h2>
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar" class="fixed lg:sticky top-0 left-0 h-screen w-64 flex-shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shadow-sm z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+        
+        <!-- Logo & Brand -->
+        <div class="flex items-center gap-3 px-6 py-5 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent shadow-soft">
+                <span class="material-symbols-outlined text-white" style="font-size: 24px;">ecg_heart</span>
+            </div>
+            <div>
+                <h2 class="text-lg font-bold text-slate-900 dark:text-white tracking-tight">MedEcho</h2>
+                <p class="text-xs text-slate-500">Clinical Suite</p>
+            </div>
         </div>
 
-        <ul class="flex flex-col gap-2">
+        <!-- Navigation Menu -->
+        <nav class="flex-1 px-3 py-6">
+            <ul class="flex flex-col gap-1.5">
+                <li data-page="dashboard" class="nav-item group px-4 py-3.5 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 text-primary cursor-pointer flex items-center gap-3">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span class="font-medium">Dashboard</span>
+                </li>
 
-            <li data-page="dashboard" class="nav-item px-4 py-3 rounded-lg bg-primary/10 text-primary cursor-pointer">
-                <span class="material-symbols-outlined">dashboard</span> Dashboard
-            </li>
+                <li data-page="history" class="nav-item group px-4 py-3.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary flex items-center gap-3">
+                    <span class="material-symbols-outlined">history</span>
+                    <span class="font-medium">History</span>
+                </li>
 
-            <li data-page="history" class="nav-item px-4 py-3 rounded-lg cursor-pointer text-gray-700 dark:text-gray-300">
-                <span class="material-symbols-outlined">history</span> History
-            </li>
+                <li data-page="phase1" class="nav-item group px-4 py-3.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary flex items-center gap-3">
+                    <span class="material-symbols-outlined">assignment</span>
+                    <span class="font-medium">Clinical Intake</span>
+                </li>
 
-            <li data-page="phase1" class="nav-item px-4 py-3 rounded-lg cursor-pointer text-gray-700 dark:text-gray-300">
-                <span class="material-symbols-outlined">receipt_long</span> Clinical Intake 
-            </li>
+                <li data-page="phase2" class="nav-item group px-4 py-3.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary flex items-center gap-3">
+                    <span class="material-symbols-outlined">task_alt</span>
+                    <span class="font-medium">Final Assessment</span>
+                </li>
+            </ul>
+        </nav>
 
-            <li data-page="phase2" class="nav-item px-4 py-3 rounded-lg cursor-pointer text-gray-700 dark:text-gray-300">
-                <span class="material-symbols-outlined">check_circle</span> Final Assessment 
-
-            </li>
-
-        </ul>
-
-        <div class="mt-auto text-xs text-gray-400 p-2">
-            <span id="user-id-display">Connecting...</span>
+        <!-- User Info -->
+        <div class="px-6 py-4 border-t border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-sm">person</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-xs font-medium text-slate-900 dark:text-white truncate">Dr. User</p>
+                    <p id="user-id-display" class="text-xs text-slate-500 truncate">Connecting...</p>
+                </div>
+            </div>
         </div>
     </aside>
 
+    <!-- Sidebar Overlay for Mobile -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 lg:hidden hidden"></div>
 
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col min-w-0">
 
-    <!-- MAIN CONTENT -->
-    <main class="flex-1 flex flex-col">
+        <!-- Top Header Bar -->
+        <header class="sticky top-0 z-20 h-16 flex items-center justify-between bg-white/80 dark:bg-slate-900/80 glass-effect border-b border-slate-200 dark:border-slate-800 px-6">
+            <div class="flex items-center gap-4">
+                <!-- Mobile Menu Toggle -->
+                <button id="menu-toggle" class="lg:hidden p-2 -ml-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+                
+                <h1 class="text-lg font-semibold text-slate-800 dark:text-slate-200">Clinical Dashboard</h1>
+            </div>
 
-        <!-- Top Header -->
-        <header class="h-16 flex items-center justify-between bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 px-6">
-            <h1 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Dashboard</h1>
-
-            <!-- Mobile sidebar toggle -->
-            <button id="menu-toggle" class="md:hidden text-gray-600 dark:text-gray-300">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
+            <!-- Quick Actions -->
+            <div class="flex items-center gap-3">
+                <button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    <span class="material-symbols-outlined">settings</span>
+                </button>
+            </div>
         </header>
 
-        <!-- Horizontal Tabs -->
-        <nav class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 px-6">
-            <div class="flex gap-6 py-3 text-sm font-medium">
-                <a data-page="dashboard" class="tab-item text-primary border-b-2 border-primary cursor-pointer">Dashboard</a>
-                <a data-page="history" class="tab-item text-gray-500 cursor-pointer">History</a>
-                <a data-page="phase1" class="tab-item text-gray-500 cursor-pointer">Clinical Intake</a>
-                <a data-page="phase2" class="tab-item text-gray-500 cursor-pointer">Final Assessment</a>
+        <!-- Secondary Navigation Tabs -->
+        <nav class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6">
+            <div class="flex gap-8 overflow-x-auto">
+                <a data-page="dashboard" class="tab-item flex items-center gap-2 py-4 text-sm font-medium text-primary border-b-2 border-primary cursor-pointer whitespace-nowrap">
+                    <span class="material-symbols-outlined text-lg">dashboard</span>
+                    Dashboard
+                </a>
+                <a data-page="history" class="tab-item flex items-center gap-2 py-4 text-sm font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 border-b-2 border-transparent hover:border-slate-300 cursor-pointer whitespace-nowrap">
+                    <span class="material-symbols-outlined text-lg">history</span>
+                    History
+                </a>
+                <a data-page="phase1" class="tab-item flex items-center gap-2 py-4 text-sm font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 border-b-2 border-transparent hover:border-slate-300 cursor-pointer whitespace-nowrap">
+                    <span class="material-symbols-outlined text-lg">assignment</span>
+                    Clinical Intake
+                </a>
+                <a data-page="phase2" class="tab-item flex items-center gap-2 py-4 text-sm font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 border-b-2 border-transparent hover:border-slate-300 cursor-pointer whitespace-nowrap">
+                    <span class="material-symbols-outlined text-lg">task_alt</span>
+                    Final Assessment
+                </a>
             </div>
         </nav>
 
-        <!-- Dynamic Content -->
-        <div id="content-area" class="flex-1 overflow-y-auto p-6">
+        <!-- Dynamic Content Container -->
+        <div id="content-area" class="flex-1 overflow-y-auto bg-slate-50 dark:bg-slate-900">
 
             <!-- DASHBOARD PAGE -->
-            <div id="content-dashboard">
+            <div id="content-dashboard" class="p-6 md:p-8 max-w-7xl mx-auto">
+                
+                <!-- Welcome Section -->
+                <div class="mb-8">
+                    <h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">
+                        Welcome to <span class="gradient-text">MedEcho</span>
+                    </h1>
+                    <p class="text-slate-600 dark:text-slate-400 text-lg">
+                        Start your workflow by recording a new patient session.
+                    </p>
+                </div>
 
-                <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Welcome</h1>
-                <p class="text-gray-500 dark:text-gray-400 mb-6">Start your workflow by recording a new patient session.</p>
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-card border border-slate-200 dark:border-slate-700">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-primary text-2xl">folder_open</span>
+                            </div>
+                            <span class="text-2xl font-bold text-slate-900 dark:text-white">12</span>
+                        </div>
+                        <h3 class="text-sm font-medium text-slate-600 dark:text-slate-400">Active Cases</h3>
+                    </div>
 
-                <!-- RECORD BUTTON HERE -->
-                <div class="grid grid-cols-1 gap-6">
-                    <div id="record-session-btn"
-                         class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 p-6 cursor-pointer hover:border-primary transition">
-                        <div class="text-primary text-4xl">
-                            <span class="material-symbols-outlined" style="font-size:40px;">mic</span>
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-card border border-slate-200 dark:border-slate-700">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-accent text-2xl">check_circle</span>
+                            </div>
+                            <span class="text-2xl font-bold text-slate-900 dark:text-white">48</span>
                         </div>
-                        <div>
-                            <h2 class="text-lg font-bold dark:text-white">Record New Session</h2>
-                            <p class="text-gray-500 dark:text-gray-400 text-sm">Click to begin recording and automatically generate a clinical report.</p>
+                        <h3 class="text-sm font-medium text-slate-600 dark:text-slate-400">Completed Reports</h3>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-card border border-slate-200 dark:border-slate-700">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-amber-600 text-2xl">pending</span>
+                            </div>
+                            <span class="text-2xl font-bold text-slate-900 dark:text-white">3</span>
                         </div>
+                        <h3 class="text-sm font-medium text-slate-600 dark:text-slate-400">Pending Review</h3>
                     </div>
                 </div>
 
-               
-                
+                <!-- Main Action Card -->
+                <div class="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-800/50 rounded-2xl shadow-medium border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <div id="record-session-btn" class="p-8 cursor-pointer card-hover transition-all">
+                        <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                            <!-- Icon -->
+                            <div class="relative flex-shrink-0">
+                                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg">
+                                    <span class="material-symbols-outlined text-white" style="font-size: 48px;">mic</span>
+                                </div>
+                                <div class="absolute inset-0 rounded-2xl bg-primary opacity-20 pulse-ring"></div>
+                            </div>
 
-                
+                            <!-- Content -->
+                            <div class="flex-1 text-center md:text-left">
+                                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                                    Start New Recording Session
+                                </h2>
+                                <p class="text-slate-600 dark:text-slate-400 mb-4 max-w-2xl">
+                                    Click here to begin recording a patient consultation. Our AI will automatically transcribe and generate a comprehensive clinical report.
+                                </p>
+                                <div class="inline-flex items-center gap-2 text-primary font-semibold">
+                                    <span>Begin Recording</span>
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+record-session-btn
+                <!-- Recent Activity -->
+                <div class="mt-8">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Recent Activity</h2>
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-card border border-slate-200 dark:border-slate-700 p-6">
+                        <p class="text-slate-500 dark:text-slate-400 text-center py-8">
+                            No recent activity to display
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <!-- OTHER PAGES -->
+            <!-- OTHER PAGES (Dynamically Loaded) -->
             <section id="dynamic-content" class="min-h-full"></section>
 
         </div>
     </main>
 </div>
 
+<!-- RECORDING MODAL -->
+<div id="recording-modal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-md overflow-hidden">
+        <div class="p-8 flex flex-col items-center text-center">
+            <!-- Icon with Animation -->
+            <div class="relative mb-6">
+                <div class="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg">
+                    <span class="material-symbols-outlined text-white" style="font-size: 56px;">mic</span>
+                </div>
+                <div id="recording-pulse" class="hidden absolute inset-0 rounded-full bg-red-500 opacity-30 pulse-ring"></div>
+            </div>
 
+            <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-3">
+                Recording Session
+            </h2>
 
-<!-- RECORDING MODAL (NEW PROFESSIONAL VERSION) -->
-<div id="recording-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-md p-6 flex flex-col items-center text-center">
+            <p id="recording-status" class="text-slate-600 dark:text-slate-400 mb-2">
+                Ready to begin recording
+            </p>
 
-        <!-- Icon -->
-        <div class="mb-4">
-            <span class="material-symbols-outlined text-primary text-5xl">mic</span>
+            <p id="recording-timer" class="hidden text-5xl font-bold font-mono mt-4 text-primary tracking-tight">
+                00:00
+            </p>
+
+            <div class="mt-8 w-full space-y-3">
+                <button id="start-record-btn" class="w-full bg-red-600 hover:bg-red-700 active:bg-red-800 text-white py-4 px-6 text-lg font-semibold rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined">radio_button_checked</span>
+                    <span>Start Recording</span>
+                </button>
+
+                <button id="stop-record-btn" class="hidden w-full bg-slate-700 hover:bg-slate-800 text-white py-4 px-6 text-lg font-semibold rounded-xl transition-all flex items-center justify-center gap-2" disabled>
+                    <span class="material-symbols-outlined">stop_circle</span>
+                    <span>Stop Recording</span>
+                </button>
+            </div>
+
+            <p id="modal-feedback" class="hidden mt-4 text-sm text-primary font-medium"></p>
         </div>
 
-        <!-- Title -->
-        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Recording Session</h2>
-
-        <!-- Status -->
-        <p id="recording-status" class="text-gray-600 dark:text-gray-300 text-sm">
-            Ready to Record
-        </p>
-
-        <!-- Timer -->
-        <p id="recording-timer" class="hidden text-4xl font-mono mt-3 text-primary">00:00</p>
-
-        <!-- Buttons -->
-        <div class="mt-6 flex flex-col w-full gap-3">
-
-            <!-- Start -->
-            <button id="start-record-btn"
-                class="w-full bg-red-600 hover:bg-red-700 text-white py-3 text-lg rounded-lg transition">
-                Start Recording
-            </button>
-
-            <!-- Stop -->
-            <button id="stop-record-btn"
-                class="w-full hidden bg-gray-700 hover:bg-gray-800 text-white py-3 text-lg rounded-lg transition"
-                disabled>
-                Stop Recording
+        <div class="bg-slate-50 dark:bg-slate-800/50 px-8 py-4 border-t border-slate-200 dark:border-slate-700">
+            <button id="close-recording-modal" class="w-full py-3 rounded-xl bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-300 dark:hover:bg-slate-600 font-medium transition-all">
+                Close
             </button>
         </div>
-
-        <!-- Feedback -->
-        <p id="modal-feedback" class="hidden mt-4 text-primary text-sm"></p>
-
-        <!-- Close -->
-        <button id="close-recording-modal"
-                class="mt-6 w-full py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600 transition">
-            Close
-        </button>
-
     </div>
 </div>
-
-
 
 <!-- EDITOR MODAL -->
-<div id="edit-report-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
-    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-xl w-full max-w-4xl h-[90vh] p-6 flex flex-col">
-
-        <h2 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Review & Edit Report</h2>
-
-        <div class="flex-1 min-h-0">
-            <div id="html-editor" class="w-full h-full"></div>
+<div id="edit-report-modal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-6xl h-[90vh] flex flex-col overflow-hidden">
+        
+        <div class="flex items-center justify-between px-8 py-6 border-b border-slate-200 dark:border-slate-700">
+            <div>
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Review & Edit Report</h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Make any necessary changes before finalizing</p>
+            </div>
+            <button id="cancel-edit-modal" type="button" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
+                <span class="material-symbols-outlined">close</span>
+            </button>
         </div>
 
-        <form id="edit-report-form" class="mt-4 flex justify-end gap-3">
-            <button id="cancel-edit-modal" type="button" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg">Cancel</button>
-            <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg">Save Final PDF</button>
-        </form>
+        <div class="flex-1 p-6 overflow-hidden">
+            <div id="html-editor" class="w-full h-full rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden bg-white dark:bg-slate-800"></div>
+        </div>
 
-        <p id="edit-feedback" class="hidden text-center mt-3 text-green-600"></p>
+        <form id="edit-report-form" class="flex items-center justify-end gap-3 px-8 py-6 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700">
+            <p id="edit-feedback" class="hidden text-sm text-accent font-medium mr-auto flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">check_circle</span>
+                <span>Report saved successfully!</span>
+            </p>
+            <button id="cancel-edit-modal-btn" type="button" class="px-6 py-3 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-900 dark:text-white rounded-xl font-medium transition-all">
+                Cancel
+            </button>
+            <button type="submit" class="px-6 py-3 bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-accent/90 text-white rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl flex items-center gap-2">
+                <span class="material-symbols-outlined">save</span>
+                <span>Save Final PDF</span>
+            </button>
+        </form>
     </div>
 </div>
 
-
-
-
 <script type="module" src="script.js"></script>
+
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        sidebar.classList.toggle('-translate-x-full');
+        overlay.classList.toggle('hidden');
+    });
+
+    document.getElementById('sidebar-overlay').addEventListener('click', function() {
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+    });
+</script>
 
 </body>
 </html>

@@ -129,7 +129,7 @@ def process_full_medical_report(
 
         prompt = f"""
 You are a medical report generator for the INITIAL CLINICAL INTAKE (Phase 1).
-
+            
 TRANSCRIPT:
 {transcript_text}
 

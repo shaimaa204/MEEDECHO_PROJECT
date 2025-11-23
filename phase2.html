@@ -1,39 +1,64 @@
-<section class="page-content p-6 space-y-8">
-
-    <!-- HEADER -->
-    <div class="border-b pb-4">
-        <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
+<section class="page-content p-6 md:p-8 max-w-7xl mx-auto space-y-8">
+    <!-- Header -->
+    <div class="border-b border-slate-200 dark:border-slate-700 pb-6">
+        <h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">
             Final Assessment – Doctor Review (Phase 2)
         </h1>
-        <p class="text-gray-500 dark:text-gray-400 mt-1">
+        <p class="text-slate-600 dark:text-slate-400 text-base">
             Record your doctor-only final interpretation, then review & export the official medical report.
         </p>
     </div>
 
-    <!-- PHASE 2 CASE INFO -->
-    <div id="phase2-case-info"
-         class="bg-blue-50 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-700
-                text-blue-700 dark:text-blue-300 px-4 py-3 rounded-xl font-medium shadow-sm">
-        Loading case information...
+    <!-- Case Information Alert -->
+    <div id="phase2-case-info" class="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/30 dark:to-cyan-900/30 border-l-4 border-primary rounded-xl shadow-sm overflow-hidden">
+        <div class="px-6 py-4 flex items-start gap-4">
+            <div class="flex-shrink-0">
+                <span class="material-symbols-outlined text-primary text-2xl">info</span>
+            </div>
+            <div class="flex-1">
+                <h3 class="font-semibold text-slate-900 dark:text-white mb-1">Case Information</h3>
+                <p class="text-slate-700 dark:text-slate-300">Loading case information...</p>
+            </div>
+        </div>
     </div>
 
-    <!-- RECORD FINAL ASSESSMENT BUTTON -->
-    <div id="start-phase2-record"
-         class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700
-                bg-white dark:bg-gray-900/50 p-6 cursor-pointer hover:border-primary transition">
-
+    <!-- Record Final Assessment Button -->
+    <div id="start-phase2-record" class="flex flex-col gap-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-800/50 p-8 cursor-pointer hover:border-primary hover:shadow-lg transition-all duration-200">
+        
+        <!-- Icon Section -->
         <div class="text-primary text-4xl">
             <span class="material-symbols-outlined" style="font-size:40px;">mic</span>
         </div>
 
+        <!-- Content Section -->
         <div>
-            <h2 class="text-lg font-bold dark:text-white">Record Final Assessment</h2>
-            <p class="text-gray-500 dark:text-gray-400 text-sm">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                Record Final Assessment
+            </h2>
+            <p class="text-slate-600 dark:text-slate-400">
                 Click to begin recording your final doctor-only session.
             </p>
         </div>
     </div>
 
-    <div id="phase2-output" class="mt-4 text-xs text-gray-700 dark:text-gray-300"></div>
+    <!-- Output Messages -->
+    <div id="phase2-output" class="text-sm text-slate-700 dark:text-slate-300"></div>
 
+    <!-- Status Information -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-card border border-slate-200 dark:border-slate-700 p-6">
+        <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
+                <span class="material-symbols-outlined text-amber-600 dark:text-amber-400">lightbulb</span>
+            </div>
+            <div>
+                <h3 class="font-semibold text-slate-900 dark:text-white mb-2">Assessment Guidelines</h3>
+                <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-1 list-disc list-inside">
+                    <li>Review the initial intake report before recording</li>
+                    <li>Provide your final medical interpretation and diagnosis</li>
+                    <li>Include treatment recommendations and follow-up instructions</li>
+                    <li>The final report will be automatically generated and can be edited before export</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </section>
