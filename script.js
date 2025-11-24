@@ -237,6 +237,19 @@ async function uploadRecordedAudioForPhase(phase, audioBlob, outputEl) {
 
         const json = await res.json();
         lastReportJson = json;
+// =========================================================
+// AUTO CHECKLIST COMPLETION (if Preload.js + Main.js support it)
+// =========================================================
+if (window.checklistAPI && window.checklistAPI.autoComplete) {
+    try {
+        await window.checklistAPI.autoComplete();
+        console.log("Checklist automatically completed.");
+    } catch (err) {
+        console.error("Checklist auto-complete failed:", err);
+    }
+} else {
+    console.warn("Checklist API not available.");
+}
 
         outputEl.innerHTML = `
             <pre class="text-xs bg-gray-900 text-green-200 p-3 rounded overflow-auto max-h-80">

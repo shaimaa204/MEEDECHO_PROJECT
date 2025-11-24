@@ -22,24 +22,45 @@
         </div>
     </div>
 
-    <!-- Record Final Assessment Button -->
-    <div id="start-phase2-record" class="flex flex-col gap-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-800/50 p-8 cursor-pointer hover:border-primary hover:shadow-lg transition-all duration-200">
-        
-        <!-- Icon Section -->
-        <div class="text-primary text-4xl">
-            <span class="material-symbols-outlined" style="font-size:40px;">mic</span>
-        </div>
+  <!-- Final Assessment Action Card -->
+<div class="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-800/50 
+            rounded-2xl shadow-medium border border-slate-200 dark:border-slate-700 
+            overflow-hidden mb-8">
 
-        <!-- Content Section -->
-        <div>
-            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">
-                Record Final Assessment
-            </h2>
-            <p class="text-slate-600 dark:text-slate-400">
-                Click to begin recording your final doctor-only session.
-            </p>
+    <div id="start-phase2-record" 
+         class="p-8 cursor-pointer card-hover transition-all">
+
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+
+            <!-- Icon -->
+            <div class="relative flex-shrink-0">
+                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-accent 
+                            flex items-center justify-center shadow-lg">
+                    <span class="material-symbols-outlined text-white" style="font-size: 48px;">
+                        mic
+                    </span>
+                </div>
+                <div class="absolute inset-0 rounded-2xl bg-primary opacity-20 pulse-ring"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="flex-1 text-center md:text-left">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                    Record Final Assessment
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 mb-4 max-w-2xl">
+                    Click here to begin recording your final doctor-only assessment. 
+                    This will attach to the intake case and generate a complete report.
+                </p>
+                <div class="inline-flex items-center gap-2 text-primary font-semibold">
+                    <span>Begin Recording</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </div>
+            </div>
+
         </div>
     </div>
+</div>
 
     <!-- Output Messages -->
     <div id="phase2-output" class="text-sm text-slate-700 dark:text-slate-300"></div>

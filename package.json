@@ -12,9 +12,9 @@
     "html",
     "javascript"
   ],
-  "author": "Your Name",
+  "author": "hamza almughrabi ,aisha aldalaeen",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^30.5.1"
+    "electron": "^30.0.0"
   }
 }

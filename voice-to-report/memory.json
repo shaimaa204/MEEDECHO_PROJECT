@@ -1665,6 +1665,125 @@
       "timestamp": "2025-11-23T23:46:27.535343",
       "_category": null,
       "_missing_info": []
+    },
+    {
+      "report_id": "recording_1763992525636",
+      "phase": "intake",
+      "patient_name": "حمزة المغرب",
+      "age": "22",
+      "sex": "ذكر",
+      "dob": "N/A",
+      "referring_doctor": "N/A",
+      "exam_date": "N/A",
+      "exam_type": "N/A",
+      "clinical_history": "المريض يعاني من حموضة منذ أسبوعين.",
+      "detailed_findings": [
+        {
+          "finding": "حموضة",
+          "explanation": "المريض ذكر أنه يعاني من حموضة منذ أسبوعين."
+        }
+      ],
+      "impression_summary": "المريض يعاني من حموضة مستمرة لمدة أسبوعين.",
+      "recommendations": [
+        "مراجعة الطبيب المختص في حال استمرار الأعراض.",
+        "تجنب الأطعمة التي قد تزيد من الحموضة مثل الأطعمة الحارة أو الدهنية."
+      ],
+      "urgency_level": "moderate",
+      "timestamp": "2025-11-24T16:55:37.521824",
+      "_category": null,
+      "_missing_info": []
+    },
+    {
+      "report_id": "recording_1763992904286",
+      "phase": "intake",
+      "patient_name": "N/A",
+      "age": "N/A",
+      "sex": "N/A",
+      "dob": "N/A",
+      "referring_doctor": "N/A",
+      "exam_date": "N/A",
+      "exam_type": "N/A",
+      "clinical_history": "N/A",
+      "detailed_findings": [],
+      "impression_summary": "N/A",
+      "recommendations": [],
+      "urgency_level": "N/A",
+      "timestamp": "2025-11-24T17:01:55.306414",
+      "_category": null,
+      "_missing_info": []
+    },
+    {
+      "report_id": "recording_1764009234781",
+      "phase": "intake",
+      "patient_name": "Khaled",
+      "age": "N/A",
+      "sex": "N/A",
+      "dob": "N/A",
+      "referring_doctor": "N/A",
+      "exam_date": "N/A",
+      "exam_type": "N/A",
+      "clinical_history": "Patient Profile: Name: Khaled. Chief Complaint (CC): 'Sharp chest pain, severe and sudden onset, for approximately one hour.' History of Present Illness (HPI): Site: Mid-chest. Onset: Sudden, approximately one hour ago. Character: Sharp, strong pressure. Radiation: To the left arm. Associated symptoms: Shortness of breath, severe sweating. Timing: Acute, sudden onset. Exacerbating/relieving factors: Pain increases with movement, no relieving factors. Severity: Severe. Systemic Enquiry / Review of Systems (ROS): Cardiovascular: Chest pain, radiation to left arm. Respiratory: Shortness of breath. General: Severe sweating. Neurological: Lightheadedness. Past Medical and Surgical History: N/A. Drug History: N/A. Family History: Father had a heart attack. Social History: Smoker.",
+      "detailed_findings": [
+        {
+          "finding": "Sharp chest pain",
+          "explanation": "Severe, sudden onset pain in the mid-chest, indicative of possible cardiac event.",
+          "severity": "Severe",
+          "temporal_relation": "Acute",
+          "system": "cardiovascular"
+        },
+        {
+          "finding": "Pain radiating to left arm",
+          "explanation": "Radiation of pain to the left arm, commonly associated with cardiac ischemia.",
+          "severity": "Severe",
+          "temporal_relation": "Acute",
+          "system": "cardiovascular"
+        },
+        {
+          "finding": "Shortness of breath",
+          "explanation": "Difficulty breathing, often associated with cardiac or respiratory distress.",
+          "severity": "Severe",
+          "temporal_relation": "Acute",
+          "system": "respiratory"
+        },
+        {
+          "finding": "Severe sweating",
+          "explanation": "Profuse sweating, often associated with acute stress or cardiac events.",
+          "severity": "Severe",
+          "temporal_relation": "Acute",
+          "system": "general"
+        },
+        {
+          "finding": "Lightheadedness",
+          "explanation": "Feeling of dizziness, potentially related to decreased cardiac output or perfusion.",
+          "severity": "Mild",
+          "temporal_relation": "Acute",
+          "system": "neurological"
+        },
+        {
+          "finding": "Smoking history",
+          "explanation": "Patient is a smoker, a risk factor for cardiovascular disease.",
+          "severity": "N/A",
+          "temporal_relation": "Chronic",
+          "system": "social"
+        },
+        {
+          "finding": "Family history of heart attack",
+          "explanation": "Father had a heart attack, indicating a possible genetic predisposition to cardiovascular disease.",
+          "severity": "N/A",
+          "temporal_relation": "N/A",
+          "system": "family"
+        }
+      ],
+      "impression_summary": "Findings are consistent with an acute coronary syndrome, given the sudden onset of severe chest pain radiating to the left arm, associated with shortness of breath and severe sweating. The patient's smoking history and family history of heart disease further support this impression. Differential considerations include myocardial infarction and unstable angina.",
+      "recommendations": [
+        "Immediate electrocardiogram (ECG) to assess cardiac function.",
+        "Consideration for cardiac biomarkers to evaluate myocardial injury.",
+        "Urgent cardiology consultation for further management."
+      ],
+      "urgency_level": "high",
+      "timestamp": "2025-11-24T21:34:18.421489",
+      "_category": null,
+      "_missing_info": []
     }
   ],
   "final_reports": [
@@ -1835,6 +1954,108 @@
         "medications used?"
       ],
       "_intake_report_id": "recording_1763586755006"
+    },
+    {
+      "report_id": "recording_1764009234781",
+      "phase": "final_assessment",
+      "patient_name": "Khaled",
+      "age": "N/A",
+      "sex": "N/A",
+      "dob": "N/A",
+      "referring_doctor": "N/A",
+      "exam_date": "N/A",
+      "exam_type": "N/A",
+      "clinical_history": "Patient Profile: Name: Khaled. Chief Complaint: 'Sharp chest pain, severe and sudden onset, for approximately one hour.' History of Present Illness: Site: Mid-chest, radiating to the left arm and jaw. Onset: Sudden, approximately one hour ago. Character: Sharp, burning pressure. Radiation: To the left arm and jaw. Associated symptoms: Shortness of breath, severe sweating. Timing: Acute, sudden onset, exacerbated by exertion, slightly relieved by rest. Severity: 7 out of 10. Systemic Enquiry: Cardiovascular: Chest pain, radiation to left arm and jaw. Respiratory: Shortness of breath. General: Severe sweating. Neurological: Lightheadedness. Past Medical and Surgical History: N/A. Drug History: N/A. Family History: Father had a heart attack. Social History: Smoker, sedentary lifestyle.",
+      "detailed_findings": [
+        {
+          "finding": "Sharp chest pain",
+          "explanation": "Severe, sudden onset pain in the mid-chest, indicative of possible cardiac event.",
+          "severity": "Severe",
+          "temporal_relation": "Acute",
+          "system": "cardiovascular"
+        },
+        {
+          "finding": "Pain radiating to left arm and jaw",
+          "explanation": "Radiation of pain to the left arm and jaw, commonly associated with cardiac ischemia.",
+          "severity": "Severe",
+          "temporal_relation": "Acute",
+          "system": "cardiovascular"
+        },
+        {
+          "finding": "Shortness of breath",
+          "explanation": "Difficulty breathing, often associated with cardiac or respiratory distress.",
+          "severity": "Severe",
+          "temporal_relation": "Acute",
+          "system": "respiratory"
+        },
+        {
+          "finding": "Severe sweating",
+          "explanation": "Profuse sweating, often associated with acute stress or cardiac events.",
+          "severity": "Severe",
+          "temporal_relation": "Acute",
+          "system": "general"
+        },
+        {
+          "finding": "Lightheadedness",
+          "explanation": "Feeling of dizziness, potentially related to decreased cardiac output or perfusion.",
+          "severity": "Mild",
+          "temporal_relation": "Acute",
+          "system": "neurological"
+        },
+        {
+          "finding": "Smoking history",
+          "explanation": "Patient is a smoker, a risk factor for cardiovascular disease.",
+          "severity": "N/A",
+          "temporal_relation": "Chronic",
+          "system": "social"
+        },
+        {
+          "finding": "Family history of heart attack",
+          "explanation": "Father had a heart attack, indicating a possible genetic predisposition to cardiovascular disease.",
+          "severity": "N/A",
+          "temporal_relation": "N/A",
+          "system": "family"
+        },
+        {
+          "finding": "Elevated blood pressure",
+          "explanation": "Initial examination shows elevated blood pressure, which can be a sign of cardiovascular stress.",
+          "severity": "N/A",
+          "temporal_relation": "Acute",
+          "system": "cardiovascular"
+        },
+        {
+          "finding": "Tachycardia",
+          "explanation": "Increased heart rate observed during initial examination, possibly due to stress or cardiac event.",
+          "severity": "N/A",
+          "temporal_relation": "Acute",
+          "system": "cardiovascular"
+        },
+        {
+          "finding": "No heart murmurs or pulmonary edema",
+          "explanation": "Absence of heart murmurs or signs of pulmonary edema on examination.",
+          "severity": "N/A",
+          "temporal_relation": "N/A",
+          "system": "cardiovascular"
+        }
+      ],
+      "impression_summary": "The clinical presentation is consistent with an acute coronary syndrome, likely unstable angina or myocardial infarction, given the sudden onset of severe chest pain radiating to the left arm and jaw, associated with shortness of breath and severe sweating. The patient's smoking history and family history of heart disease further support this impression. Differential considerations include pericarditis. Initial examination findings of elevated blood pressure and tachycardia support the acute nature of the condition.",
+      "recommendations": [
+        "Immediate electrocardiogram (ECG) to assess cardiac function.",
+        "Blood tests including cardiac biomarkers, CBC, and electrolytes to evaluate myocardial injury.",
+        "Administer aspirin and sublingual nitroglycerin to alleviate chest pain.",
+        "Urgent cardiology consultation for further management.",
+        "Monitor vital signs closely and prepare for potential advanced cardiac life support if needed."
+      ],
+      "urgency_level": "high",
+      "timestamp": "2025-11-24T21:40:46.182361",
+      "_category": "knee_pain",
+      "_missing_info": [
+        "duration of pain",
+        "trauma history",
+        "swelling present?",
+        "medications used?"
+      ],
+      "_intake_report_id": "recording_1764009234781"
     }
   ]
 }

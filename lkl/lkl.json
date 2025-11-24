@@ -43,14 +43,25 @@
           "mild lateral tracking abnormality",
           "Dry eyes",
           "Sore throat",
-          "Headache"
+          "Headache",
+          "Sharp chest pain",
+          "Pain radiating to left arm and jaw",
+          "Shortness of breath",
+          "Severe sweating",
+          "Lightheadedness",
+          "Smoking history",
+          "Family history of heart attack",
+          "Elevated blood pressure",
+          "Tachycardia",
+          "No heart murmurs or pulmonary edema"
         ],
         "impression_templates": [
           "Clinical findings suggest mild soft tissue injury.",
           "Features are consistent with inflammatory knee pain.",
           "Possibility of internal derangement cannot be excluded.",
           "Findings suggest MCL strain with patellofemoral dysfunction.",
-          "Patient presents with dry eyes, sore throat, and headache, all of which have been addressed with appropriate treatments."
+          "Patient presents with dry eyes, sore throat, and headache, all of which have been addressed with appropriate treatments.",
+          "The clinical presentation is consistent with an acute coronary syndrome, likely unstable angina or myocardial infarction, given the sudden onset of severe chest pain radiating to the left arm and jaw, associated with shortness of breath and severe sweating. The patient's smoking history and family history of heart disease further support this impression. Differential considerations include pericarditis. Initial examination findings of elevated blood pressure and tachycardia support the acute nature of the condition."
         ]
       },
       "anatomical_location": {

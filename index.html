@@ -15,7 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 
-    <link rel="stylesheet" href__="styles.css"/>
+    <!-- Optional custom styles -->
+    <link rel="stylesheet" href="styles.css"/>
 
     <script>
         tailwind.config = {
@@ -43,7 +44,112 @@
             }
         }
     </script>
+<style>
+/* Sticky Notes Widget */
+.sticky-notes-widget {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 280px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    z-index: 999;
+    border: 2px solid #e2e8f0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
 
+.sticky-notes-widget:hover {
+    box-shadow: 0 12px 40px rgba(8, 145, 178, 0.2);
+    border-color: #0891B2;
+}
+
+.sticky-header {
+    background: linear-gradient(135deg, #0891B2 0%, #059669 100%);
+    color: white;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sticky-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.sticky-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 6px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.sticky-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.sticky-content {
+    padding: 16px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.sticky-section {
+    margin-bottom: 16px;
+}
+
+.sticky-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.sticky-notes-text {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #334155;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.sticky-notes-text.empty {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+.sticky-checklist-item {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    background: #f8fafc;
+    border-radius: 6px;
+    margin-bottom: 6px;
+}
+
+.sticky-checklist-item.done {
+    opacity: 0.6;
+    background: #f0fdf4;
+}
+
+.sticky-checklist-item.done .text {
+    text-decoration: line-through;
+}
+
+@media (max-width: 1024px) {
+    .sticky-notes-widget { display: none; }
+}
+</style>
     <style>
         * {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -139,7 +245,7 @@
                     <span class="material-symbols-outlined">dashboard</span>
                     <span class="font-medium">Dashboard</span>
                 </li>
-
+                
                 <li data-page="history" class="nav-item group px-4 py-3.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary flex items-center gap-3">
                     <span class="material-symbols-outlined">history</span>
                     <span class="font-medium">History</span>
@@ -196,6 +302,12 @@
                 <button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
                     <span class="material-symbols-outlined">settings</span>
                 </button>
+                
+                <!-- Notes Icon -->
+                <button id="notes-toggle-btn" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 relative">
+                    <span class="material-symbols-outlined">sticky_note_2</span>
+                    <span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+                </button>
             </div>
         </header>
 
@@ -221,8 +333,8 @@
             </div>
         </nav>
 
-        <!-- Dynamic Content Container -->
-        <div id="content-area" class="flex-1 overflow-y-auto bg-slate-50 dark:bg-slate-900">
+        <!-- Scrollable content container -->
+        <div class="flex-1 overflow-y-auto bg-slate-50 dark:bg-slate-900">
 
             <!-- DASHBOARD PAGE -->
             <div id="content-dashboard" class="p-6 md:p-8 max-w-7xl mx-auto">
@@ -298,19 +410,10 @@
                         </div>
                     </div>
                 </div>
-record-session-btn
-                <!-- Recent Activity -->
-                <div class="mt-8">
-                    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Recent Activity</h2>
-                    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-card border border-slate-200 dark:border-slate-700 p-6">
-                        <p class="text-slate-500 dark:text-slate-400 text-center py-8">
-                            No recent activity to display
-                        </p>
-                    </div>
-                </div>
             </div>
 
             <!-- OTHER PAGES (Dynamically Loaded) -->
+            <!-- script.js uses this element as contentArea -->
             <section id="dynamic-content" class="min-h-full"></section>
 
         </div>
@@ -398,23 +501,215 @@ record-session-btn
     </div>
 </div>
 
+<!-- NOTES PANEL (Slide-in from right) -->
+<div id="notes-panel" class="fixed top-0 right-0 h-full w-96 bg-white dark:bg-slate-900 shadow-2xl transform translate-x-full transition-transform duration-300 z-50 flex flex-col border-l border-slate-200 dark:border-slate-700">
+    
+    <!-- Panel Header -->
+    <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-700 bg-gradient-to-r from-primary/10 to-accent/10">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                <span class="material-symbols-outlined text-white text-xl">sticky_note_2</span>
+            </div>
+            <div>
+                <h2 class="text-lg font-bold text-slate-900 dark:text-white">Notes & Tasks</h2>
+                <p class="text-xs text-slate-500">Quick reference panel</p>
+            </div>
+        </div>
+        <button id="close-notes-panel" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+
+    <!-- Panel Content (Scrollable) -->
+    <div class="flex-1 overflow-y-auto p-6 space-y-6">
+        
+        <!-- Notes Section -->
+        <div>
+            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg text-primary">edit_note</span>
+                Clinical Notes
+            </label>
+            <textarea 
+                id="notes-textarea" 
+                placeholder="Type your notes here..."
+                class="w-full h-48 px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-primary text-sm text-slate-900 dark:text-white"
+            ></textarea>
+            <p class="text-xs text-slate-500 mt-2">Auto-saves as you type</p>
+        </div>
+
+        <!-- Checklist Section -->
+        <div>
+            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg text-accent">checklist</span>
+                Quick Checklist
+            </label>
+
+            <!-- Add New Item -->
+            <div class="flex gap-2 mb-4">
+                <input 
+                    type="text" 
+                    id="checklist-input" 
+                    placeholder="Add task..."
+                    class="flex-1 px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+                >
+                <button id="add-checklist-btn" class="px-4 py-2 bg-accent hover:bg-accent/90 text-white rounded-lg text-sm font-medium transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-lg">add</span>
+                </button>
+            </div>
+
+            <!-- Checklist Items -->
+            <div id="checklist-items" class="space-y-2">
+                <!-- Dynamic items will be inserted here -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="checklist-empty" class="text-center py-6 text-slate-400">
+                <span class="material-symbols-outlined text-3xl mb-2 opacity-30">check_box</span>
+                <p class="text-sm">No tasks yet</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Panel Overlay -->
+<div id="notes-overlay" class="hidden fixed inset-0 bg-black/30 backdrop-blur-sm z-40"></div>
+
+<!-- Main App Script (uses #dynamic-content, #content-dashboard, etc.) -->
 <script type="module" src="script.js"></script>
 
+<!-- Notes Panel JS (optional, if عندك logic له) -->
+<script src="notes-panel.js"></script>
+
+<!-- Replace the entire sticky widget HTML and script -->
+
+<!-- Sticky Notes Widget -->
+<div id="sticky-notes-widget" class="sticky-notes-widget">
+    <div class="sticky-header">
+        <div class="sticky-title">
+            <span class="material-symbols-outlined">medical_information</span>
+            <span>Patient Questions</span>
+        </div>
+        <button id="toggle-sticky" class="sticky-toggle">
+            <span class="material-symbols-outlined">expand_less</span>
+        </button>
+    </div>
+    <div class="sticky-content" id="sticky-content">
+        <div class="sticky-section">
+            <div class="sticky-label">📝 Clinical Notes</div>
+            <div id="sticky-notes-text" class="sticky-notes-text empty">No notes yet</div>
+        </div>
+        <div class="sticky-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div class="sticky-label" style="margin: 0;">✅ Questions to Ask</div>
+                <button id="new-patient-btn" style="background: #059669; color: white; border: none; padding: 4px 12px; border-radius: 6px; font-size: 11px; cursor: pointer; font-weight: 600;">
+                    New Patient
+                </button>
+            </div>
+            <div id="sticky-checklist"></div>
+        </div>
+    </div>
+</div>
+
 <script>
-    document.getElementById('menu-toggle').addEventListener('click', function() {
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('sidebar-overlay');
-        sidebar.classList.toggle('-translate-x-full');
-        overlay.classList.toggle('hidden');
-    });
+// Sticky Widget + Interactive Checklist
+let stickyData = { notes: '', checklist: [] };
+let isCollapsed = false;
 
-    document.getElementById('sidebar-overlay').addEventListener('click', function() {
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('sidebar-overlay');
-        sidebar.classList.add('-translate-x-full');
-        overlay.classList.add('hidden');
+async function initStickyWidget() {
+    await loadStickyData();
+    
+    document.getElementById('toggle-sticky').addEventListener('click', () => {
+        isCollapsed = !isCollapsed;
+        document.getElementById('sticky-content').style.display = isCollapsed ? 'none' : 'block';
+        document.querySelector('#toggle-sticky .material-symbols-outlined').textContent = 
+            isCollapsed ? 'expand_more' : 'expand_less';
     });
+    
+    document.getElementById('new-patient-btn').addEventListener('click', uncheckAllForNewPatient);
+    
+    setInterval(loadStickyData, 2000);
+}
+
+async function loadStickyData() {
+    try {
+        stickyData = await window.notesAPI.load();
+        
+        // Update notes
+        const notesEl = document.getElementById('sticky-notes-text');
+        if (stickyData.notes?.trim()) {
+            const preview = stickyData.notes.length > 100 ? 
+                stickyData.notes.substring(0, 100) + '...' : stickyData.notes;
+            notesEl.textContent = preview;
+            notesEl.className = 'sticky-notes-text';
+        } else {
+            notesEl.textContent = 'No notes yet';
+            notesEl.className = 'sticky-notes-text empty';
+        }
+        
+        // Update checklist - make it clickable
+        const checklistEl = document.getElementById('sticky-checklist');
+        if (stickyData.checklist?.length > 0) {
+            checklistEl.innerHTML = stickyData.checklist.map(item => `
+                <div class="sticky-checklist-item ${item.done ? 'done' : ''}" onclick="toggleStickyItem('${item.id}')" style="cursor: pointer;">
+                    <span>${item.done ? '☑' : '☐'}</span>
+                    <span class="text">${item.text}</span>
+                </div>
+            `).join('');
+        } else {
+            checklistEl.innerHTML = '<div class="sticky-notes-text empty">No questions added</div>';
+        }
+    } catch (e) {
+        console.error('Sticky widget error:', e);
+    }
+}
+
+// Toggle checklist item from sticky widget
+async function toggleStickyItem(id) {
+    try {
+        await window.notesAPI.toggleChecklistItem(id);
+        await loadStickyData();
+    } catch (e) {
+        console.error('Toggle error:', e);
+    }
+}
+
+// Uncheck all items for new patient
+async function uncheckAllForNewPatient() {
+    try {
+        const data = await window.notesAPI.load();
+        for (const item of data.checklist) {
+            if (item.done) {
+                await window.notesAPI.toggleChecklistItem(item.id);
+            }
+        }
+        await loadStickyData();
+        console.log('✅ All questions unchecked for new patient');
+    } catch (e) {
+        console.error('New patient error:', e);
+    }
+}
+
+// Auto-complete all checklist items (call after report generation)
+async function autoCompleteChecklist() {
+    try {
+        const data = await window.notesAPI.load();
+        for (const item of data.checklist) {
+            if (!item.done) {
+                await window.notesAPI.toggleChecklistItem(item.id);
+            }
+        }
+        await loadStickyData();
+        console.log('✅ All questions marked as asked');
+        return { success: true };
+    } catch (e) {
+        console.error('Auto-complete error:', e);
+        return { success: false };
+    }
+}
+
+window.autoCompleteChecklist = autoCompleteChecklist;
+window.toggleStickyItem = toggleStickyItem;
+document.addEventListener('DOMContentLoaded', initStickyWidget);
 </script>
-
 </body>
 </html>
