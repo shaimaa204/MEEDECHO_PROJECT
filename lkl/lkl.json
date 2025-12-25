@@ -25,7 +25,8 @@
           "recent trauma",
           "instability or locking",
           "pain",
-          "instability"
+          "instability",
+          "locking"
         ],
         "history_questions": [
           "duration of pain",
@@ -53,7 +54,19 @@
           "Family history of heart attack",
           "Elevated blood pressure",
           "Tachycardia",
-          "No heart murmurs or pulmonary edema"
+          "No heart murmurs or pulmonary edema",
+          "Painful cramp in feet",
+          "Chronic left knee pain",
+          "No swelling or stiffness",
+          "No giving way or locking",
+          "Hypothyroidism",
+          "Family history of lymphatic disease",
+          "Family history of rheumatoid arthritis",
+          "Significant improvement in chest discomfort",
+          "Normal breathing effort",
+          "Stable vitals",
+          "Improved breathing",
+          "Significant reduction in discomfort"
         ],
         "impression_templates": [
           "Clinical findings suggest mild soft tissue injury.",
@@ -61,7 +74,10 @@
           "Possibility of internal derangement cannot be excluded.",
           "Findings suggest MCL strain with patellofemoral dysfunction.",
           "Patient presents with dry eyes, sore throat, and headache, all of which have been addressed with appropriate treatments.",
-          "The clinical presentation is consistent with an acute coronary syndrome, likely unstable angina or myocardial infarction, given the sudden onset of severe chest pain radiating to the left arm and jaw, associated with shortness of breath and severe sweating. The patient's smoking history and family history of heart disease further support this impression. Differential considerations include pericarditis. Initial examination findings of elevated blood pressure and tachycardia support the acute nature of the condition."
+          "The clinical presentation is consistent with an acute coronary syndrome, likely unstable angina or myocardial infarction, given the sudden onset of severe chest pain radiating to the left arm and jaw, associated with shortness of breath and severe sweating. The patient's smoking history and family history of heart disease further support this impression. Differential considerations include pericarditis. Initial examination findings of elevated blood pressure and tachycardia support the acute nature of the condition.",
+          "The patient presents with a painful cramp in the feet. The etiology of the cramp is unclear from the provided information and requires further investigation to rule out potential causes such as muscle spasm, electrolyte imbalance, or circulatory issues.",
+          "The patient presents with chronic left knee pain, likely due to degenerative joint disease, with significant improvement in chest discomfort and stable vitals. The absence of swelling, giving way, or locking suggests stable joint function. Family history of rheumatoid arthritis and lymphatic disease may indicate a genetic predisposition to joint issues. Hypothyroidism is well-managed with thyroxine. Overall, the clinical picture suggests stable musculoskeletal and systemic health with recent improvement in respiratory symptoms.",
+          "The patient presents with chronic left knee pain likely due to degenerative joint disease, with significant improvement in respiratory symptoms and stable vitals. The absence of swelling, giving way, or locking suggests stable joint function. Family history of rheumatoid arthritis and lymphatic disease may indicate a genetic predisposition to joint issues. Hypothyroidism is well-managed with thyroxine. Overall, the clinical picture suggests stable musculoskeletal and systemic health with recent improvement in respiratory symptoms."
         ]
       },
       "anatomical_location": {

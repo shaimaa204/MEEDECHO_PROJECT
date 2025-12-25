@@ -1,0 +1,233 @@
+{
+  "cases": [
+    {
+      "report_id": "mem_test_001",
+      "phase": "intake",
+      "patient_name": "Test Patient",
+      "clinical_history": "Sample history",
+      "detailed_findings": [],
+      "impression_summary": "Test impression"
+    },
+    {
+      "report_id": "audio1",
+      "phase": "intake",
+      "patient_name": "N/A",
+      "age": "N/A",
+      "sex": "N/A",
+      "dob": "N/A",
+      "referring_doctor": "N/A",
+      "exam_date": "N/A",
+      "exam_type": "N/A",
+      "clinical_history": "Chief Complaint (CC): Patient reports a painful cramp in the feet.",
+      "detailed_findings": [
+        {
+          "finding": "Painful cramp in feet",
+          "explanation": "The patient experiences a cramp in the feet, which may indicate muscle spasm or circulatory issues. Further evaluation is needed to determine the underlying cause.",
+          "severity": "N/A",
+          "temporal_relation": "N/A"
+        }
+      ],
+      "impression_summary": "The patient presents with a painful cramp in the feet. The etiology of the cramp is unclear from the provided information and requires further investigation to rule out potential causes such as muscle spasm, electrolyte imbalance, or circulatory issues.",
+      "recommendations": [
+        "Further evaluation to determine the cause of the foot cramp.",
+        "Consideration of laboratory tests to assess electrolyte levels.",
+        "Referral to a specialist if symptoms persist or worsen."
+      ],
+      "urgency_level": "moderate",
+      "timestamp": "2025-11-28T16:02:35.225015",
+      "_category": "knee_pain",
+      "_missing_info": [
+        "duration of pain",
+        "trauma history",
+        "swelling present?",
+        "movement limitations?",
+        "medications used?"
+      ]
+    },
+    {
+      "report_id": "Recording (3)",
+      "phase": "intake",
+      "patient_name": "N/A",
+      "age": "N/A",
+      "sex": "N/A",
+      "dob": "N/A",
+      "referring_doctor": "N/A",
+      "exam_date": "N/A",
+      "exam_type": "N/A",
+      "clinical_history": "Patient Profile: N/A. Chief Complaint (CC): Left knee pain for more than a year. History of Present Illness (HPI): The pain in the left knee started suddenly and has been present for over a year. It is exacerbated by cold weather and exposure to cold water, and relieved by warmth. The pain is constant and does not increase with movement or activity. There is no swelling or stiffness unless exposed to cold, in which case stiffness lasts less than ten minutes. No giving way or locking of the knee. Systemic Enquiry / Review of Systems (ROS): No other joint issues, no back pain, no disc problems. Past Medical and Surgical History: Hypothyroidism, treated with 100 mg of thyroxine. Drug History: Takes thyroxine 100 mg daily. Family History: Aunt with lymphatic disease affecting her knees, undergoing radiation therapy. Family history of rheumatoid arthritis. No family history of diabetes or hypertension. Social History: Lives on the third floor with elevator access, uses stairs without difficulty. Non-smoker, occasional social use of hookah. Functional/Physiotherapy Relevance: No mobility limitations reported.",
+      "detailed_findings": [
+        {
+          "finding": "Left knee pain",
+          "explanation": "Chronic pain for over a year, exacerbated by cold, relieved by warmth. No swelling or stiffness unless exposed to cold."
+        },
+        {
+          "finding": "No swelling or stiffness",
+          "explanation": "No swelling or stiffness in the knee unless exposed to cold, where stiffness lasts less than ten minutes."
+        },
+        {
+          "finding": "No giving way or locking",
+          "explanation": "The knee does not give way or lock, indicating stable joint function."
+        },
+        {
+          "finding": "Hypothyroidism",
+          "explanation": "Patient is on 100 mg of thyroxine, indicating a managed condition."
+        },
+        {
+          "finding": "Family history of lymphatic disease",
+          "explanation": "Aunt with lymphatic disease affecting knees, undergoing radiation therapy."
+        },
+        {
+          "finding": "Family history of rheumatoid arthritis",
+          "explanation": "Indicates potential genetic predisposition to joint issues."
+        }
+      ],
+      "impression_summary": "The patient presents with chronic left knee pain exacerbated by cold exposure, consistent with possible osteoarthritis or other degenerative joint disease. The absence of swelling, giving way, or locking suggests stable joint function. Family history of rheumatoid arthritis and lymphatic disease may indicate a genetic predisposition to joint issues. Hypothyroidism is managed with thyroxine.",
+      "recommendations": [
+        "Consider imaging studies such as X-ray or MRI to assess joint integrity.",
+        "Evaluate for possible osteoarthritis or other degenerative joint conditions.",
+        "Continue management of hypothyroidism with thyroxine.",
+        "Consider referral to a rheumatologist for further evaluation given family history."
+      ],
+      "urgency_level": "moderate",
+      "timestamp": "2025-11-28T16:05:29.696614",
+      "_category": null,
+      "_missing_info": []
+    }
+  ],
+  "final_reports": [
+    {
+      "report_id": "Recording (3)",
+      "phase": "final_assessment",
+      "patient_name": "N/A",
+      "age": "N/A",
+      "sex": "N/A",
+      "dob": "N/A",
+      "referring_doctor": "N/A",
+      "exam_date": "N/A",
+      "exam_type": "N/A",
+      "clinical_history": "Patient presents with chronic left knee pain for over a year, exacerbated by cold exposure and relieved by warmth. The pain is constant and does not increase with movement or activity. There is no swelling or stiffness unless exposed to cold, where stiffness lasts less than ten minutes. No giving way or locking of the knee. The patient has a history of hypothyroidism, managed with 100 mg of thyroxine daily. Family history includes an aunt with lymphatic disease affecting her knees and a family history of rheumatoid arthritis. The patient is a non-smoker with occasional social use of hookah and lives on the third floor with elevator access, using stairs without difficulty. Functional status is stable with no mobility limitations reported. Recent assessment shows significant improvement in chest discomfort, normal breathing effort, and stable vitals.",
+      "detailed_findings": [
+        {
+          "finding": "Chronic left knee pain",
+          "explanation": "Pain has been present for over a year, exacerbated by cold and relieved by warmth. No increase with movement or activity."
+        },
+        {
+          "finding": "No swelling or stiffness",
+          "explanation": "No swelling or stiffness unless exposed to cold, where stiffness lasts less than ten minutes."
+        },
+        {
+          "finding": "No giving way or locking",
+          "explanation": "The knee does not give way or lock, indicating stable joint function."
+        },
+        {
+          "finding": "Hypothyroidism",
+          "explanation": "Patient is on 100 mg of thyroxine, indicating a managed condition."
+        },
+        {
+          "finding": "Family history of lymphatic disease",
+          "explanation": "Aunt with lymphatic disease affecting knees, undergoing radiation therapy."
+        },
+        {
+          "finding": "Family history of rheumatoid arthritis",
+          "explanation": "Indicates potential genetic predisposition to joint issues."
+        },
+        {
+          "finding": "Significant improvement in chest discomfort",
+          "explanation": "Patient reports improvement in chest discomfort, indicating a positive response to treatment."
+        },
+        {
+          "finding": "Normal breathing effort",
+          "explanation": "Breathing effort is normal, suggesting no respiratory distress."
+        },
+        {
+          "finding": "Stable vitals",
+          "explanation": "Vital signs are stable, indicating no acute distress."
+        }
+      ],
+      "impression_summary": "The patient presents with chronic left knee pain, likely due to degenerative joint disease, with significant improvement in chest discomfort and stable vitals. The absence of swelling, giving way, or locking suggests stable joint function. Family history of rheumatoid arthritis and lymphatic disease may indicate a genetic predisposition to joint issues. Hypothyroidism is well-managed with thyroxine. Overall, the clinical picture suggests stable musculoskeletal and systemic health with recent improvement in respiratory symptoms.",
+      "recommendations": [
+        "Consider imaging studies such as X-ray or MRI to assess joint integrity.",
+        "Evaluate for possible osteoarthritis or other degenerative joint conditions.",
+        "Continue management of hypothyroidism with thyroxine.",
+        "Consider referral to a rheumatologist for further evaluation given family history.",
+        "Schedule a follow-up examination in 2 weeks to reassess knee pain and overall health status."
+      ],
+      "urgency_level": "moderate",
+      "timestamp": "2025-11-28T16:29:17.115529",
+      "_category": "knee_pain",
+      "_missing_info": [
+        "duration of pain",
+        "trauma history",
+        "medications used?"
+      ],
+      "_intake_report_id": "Recording (3)"
+    },
+    {
+      "report_id": "Recording (3)",
+      "phase": "final_assessment",
+      "patient_name": "N/A",
+      "age": "N/A",
+      "sex": "N/A",
+      "dob": "N/A",
+      "referring_doctor": "N/A",
+      "exam_date": "N/A",
+      "exam_type": "N/A",
+      "clinical_history": "Patient Profile: N/A. Chief Complaint: Left knee pain for more than a year, now with improved breathing and stable vitals. History of Present Illness: The left knee pain started suddenly and has persisted for over a year. It is exacerbated by cold weather and exposure to cold water, and relieved by warmth. The pain is constant and does not increase with movement or activity. There is no swelling or stiffness unless exposed to cold, where stiffness lasts less than ten minutes. No giving way or locking of the knee. Recent improvement in breathing and reduction in discomfort noted. Systemic Enquiry: No other joint issues, no back pain, no disc problems. Past Medical and Surgical History: Hypothyroidism, treated with 100 mg of thyroxine. Drug History: Takes thyroxine 100 mg daily. Family History: Aunt with lymphatic disease affecting her knees, undergoing radiation therapy. Family history of rheumatoid arthritis. No family history of diabetes or hypertension. Social History: Lives on the third floor with elevator access, uses stairs without difficulty. Non-smoker, occasional social use of hookah. Functional/Physiotherapy Relevance: No mobility limitations reported.",
+      "detailed_findings": [
+        {
+          "finding": "Chronic left knee pain",
+          "explanation": "Pain for over a year, exacerbated by cold, relieved by warmth. No swelling or stiffness unless exposed to cold."
+        },
+        {
+          "finding": "No swelling or stiffness",
+          "explanation": "No swelling or stiffness in the knee unless exposed to cold, where stiffness lasts less than ten minutes."
+        },
+        {
+          "finding": "No giving way or locking",
+          "explanation": "The knee does not give way or lock, indicating stable joint function."
+        },
+        {
+          "finding": "Hypothyroidism",
+          "explanation": "Patient is on 100 mg of thyroxine, indicating a managed condition."
+        },
+        {
+          "finding": "Family history of lymphatic disease",
+          "explanation": "Aunt with lymphatic disease affecting knees, undergoing radiation therapy."
+        },
+        {
+          "finding": "Family history of rheumatoid arthritis",
+          "explanation": "Indicates potential genetic predisposition to joint issues."
+        },
+        {
+          "finding": "Improved breathing",
+          "explanation": "Patient shows improved breathing, indicating a positive response to treatment or resolution of previous respiratory issues."
+        },
+        {
+          "finding": "Stable vitals",
+          "explanation": "Patient's vital signs are stable, suggesting no acute distress or instability."
+        },
+        {
+          "finding": "Significant reduction in discomfort",
+          "explanation": "Patient reports a significant reduction in discomfort, indicating improvement in overall condition."
+        }
+      ],
+      "impression_summary": "The patient presents with chronic left knee pain likely due to degenerative joint disease, with significant improvement in respiratory symptoms and stable vitals. The absence of swelling, giving way, or locking suggests stable joint function. Family history of rheumatoid arthritis and lymphatic disease may indicate a genetic predisposition to joint issues. Hypothyroidism is well-managed with thyroxine. Overall, the clinical picture suggests stable musculoskeletal and systemic health with recent improvement in respiratory symptoms.",
+      "recommendations": [
+        "Consider imaging studies such as X-ray or MRI to assess joint integrity.",
+        "Evaluate for possible osteoarthritis or other degenerative joint conditions.",
+        "Continue management of hypothyroidism with thyroxine.",
+        "Consider referral to a rheumatologist for further evaluation given family history.",
+        "Monitor respiratory status and ensure continued stability of vitals."
+      ],
+      "urgency_level": "moderate",
+      "timestamp": "2025-11-28T17:32:08.500077",
+      "_category": "knee_pain",
+      "_missing_info": [
+        "duration of pain",
+        "trauma history",
+        "medications used?"
+      ],
+      "_intake_report_id": "Recording (3)"
+    }
+  ]
+}
