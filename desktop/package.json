@@ -12,7 +12,7 @@
     "html",
     "javascript"
   ],
-  "author": "hamza almughrabi ,aisha aldalaeen",
+  "author": "shaimaa",
   "license": "ISC",
   "devDependencies": {
     "electron": "^30.0.0"
