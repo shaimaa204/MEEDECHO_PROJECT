@@ -1,0 +1,20 @@
+[
+  {
+    "id": "string",
+    "name": "string",
+    "age": 0,
+    "gender": "string"
+  },
+  {
+    "id": "23232",
+    "name": "hamza",
+    "age": 18,
+    "gender": "Male"
+  },
+  {
+    "id": "20223332",
+    "name": "Aisha bakr",
+    "age": 18,
+    "gender": "Female"
+  }
+]
